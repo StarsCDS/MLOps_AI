@@ -10,17 +10,20 @@ Step 1:
     create DagsHub repo: https://dagshub.com
 
 Step 2:
-    install DVC
+    run make install
     dvc init
 
     configure dvc:
         mkdir data
-        echo "## Data will be uploaded to this folder" >> data/readme.md
-        dvc add data/.
-        dvc remote add origin https://dagshub.com/sashicds/MLOps_AI.dvc
-        dvc remote modify origin --local auth basic
-        dvc remote modify origin --local user your_username
-        dvc remote modify origin --local password your_token
+        mkdir data/raw
+        echo "## Data will be uploaded to this folder" >> data/raw/readme.md
+        dvc add data/raw
+        dvc remote add -f origin https://dagshub.com/sashicds/MLOps_AI.dvc
+        dvc remote modify origin --local auth basic 
+        dvc remote modify origin --local user sashicds 
+        dvc remote modify origin --local password b194a6b2a093503992ab9f989d1f64c325274c3d
+
+        dvc config core.autostage true
         git add .
         git commit -m "Added dvc"
         git push
@@ -32,3 +35,5 @@ Step 2:
         git add data/raw.dvc data/.gitignore
         dvc config core.autostage true
         dvc push -r origin    
+
+
