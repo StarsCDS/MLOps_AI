@@ -16,10 +16,10 @@ Step 2:
     configure dvc:
         mkdir data
         echo "## Data will be uploaded to this folder" >> data/readme.md
-        svc add data/.
+        dvc add data/.
         dvc remote add origin https://dagshub.com/sashicds/MLOps_AI.dvc
         dvc remote modify origin --local auth basic
-        dvc remote modify origin --local user sashicds
+        dvc remote modify origin --local user your_username
         dvc remote modify origin --local password your_token
         git add .
         git commit -m "Added dvc"
