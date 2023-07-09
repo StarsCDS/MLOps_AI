@@ -10,4 +10,4 @@ test:
 	python -m pytest -vv -cov=hello ./UnitTest/hello_test.py
 
 lint:
-	pylint --disable R,C hello.py	
+	pylint --disable R,C ./UnitTest/hello.py	
